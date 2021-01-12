@@ -56,7 +56,7 @@ namespace SmartSchool.WebAPI.V1.Controllers
         public IActionResult GetById(int id)
         {
             var aluno = _repo.GetAlunoById(id, false);
-            if (aluno == null) return BadRequest("Aluno não encontrado!");
+            if (aluno == null) return BadRequest("Aluno não encontrado!!");
 
             var alunoDto = _mapper.Map<AlunoDto>(aluno);
 

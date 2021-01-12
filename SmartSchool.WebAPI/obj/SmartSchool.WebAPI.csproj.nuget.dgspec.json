@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vfontour\\source\\repos\\SmartSchool\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj": {}
+    "C:\\Users\\andri\\source\\repos\\SmartSchool_v2\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vfontour\\source\\repos\\SmartSchool\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj": {
+    "C:\\Users\\andri\\source\\repos\\SmartSchool_v2\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vfontour\\source\\repos\\SmartSchool\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\andri\\source\\repos\\SmartSchool_v2\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj",
         "projectName": "SmartSchool.WebAPI",
-        "projectPath": "C:\\Users\\vfontour\\source\\repos\\SmartSchool\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj",
-        "packagesPath": "C:\\Users\\vfontour\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vfontour\\source\\repos\\SmartSchool\\SmartSchool.WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\andri\\source\\repos\\SmartSchool_v2\\SmartSchool.WebAPI\\SmartSchool.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\andri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andri\\source\\repos\\SmartSchool_v2\\SmartSchool.WebAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vfontour\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -96,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
