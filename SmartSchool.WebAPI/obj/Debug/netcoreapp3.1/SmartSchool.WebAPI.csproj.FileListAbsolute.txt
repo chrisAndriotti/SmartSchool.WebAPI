@@ -67,7 +67,6 @@ C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcorea
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\SmartSchool.WebAPI.runtimeconfig.dev.json
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\SmartSchool.WebAPI.dll
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\SmartSchool.WebAPI.pdb
-C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\SmartSchool.WebAPI.xml
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
@@ -120,3 +119,9 @@ C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\obj\Debug\netcorea
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\obj\Debug\netcoreapp3.1\SmartSchool.WebAPI.dll
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\obj\Debug\netcoreapp3.1\SmartSchool.WebAPI.pdb
 C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\obj\Debug\netcoreapp3.1\SmartSchool.WebAPI.genruntimeconfig.cache
+C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\dist\web.config
+C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\dist\appsettings.Development.json
+C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\dist\appsettings.json
+C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\dist\SmartSchool.WebAPI.deps.json
+C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\dist\SmartSchool.WebAPI.runtimeconfig.json
+C:\Users\andri\source\repos\SmartSchool_v2\SmartSchool.WebAPI\bin\Debug\netcoreapp3.1\SmartSchool.WebAPI.xml
