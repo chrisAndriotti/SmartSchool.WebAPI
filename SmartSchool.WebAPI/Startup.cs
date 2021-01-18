@@ -70,8 +70,8 @@ namespace SmartSchool.WebAPI
                         },
                         Contact = new Microsoft.OpenApi.Models.OpenApiContact
                         {
-                            Name = "Victor Castro",
-                            Url = new Uri("https://github.com/victorbfcastro")
+                            Name = "Christofer Andriotti",
+                            Url = new Uri("https://github.com/chrisAndriotti")
                         }
                     }
                 );
