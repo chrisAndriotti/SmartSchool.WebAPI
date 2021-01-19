@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AlunosComponent } from './components/alunos/alunos.component';
+import { ProfessoresAlunosComponent } from './components/alunos/professores-alunos/professores-alunos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProfessoresComponent } from './components/professores/professores.component';
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     AlunosComponent,
+    ProfessoresAlunosComponent,
     DashboardComponent,
     PerfilComponent,
     ProfessoresComponent,

@@ -168,18 +168,38 @@ namespace SmartSchool.WebAPI.Data
             return await query.ToArrayAsync();
         }
 
-        public Professor GetProfessorById(int professorId, bool includeDisciplina = false)
+        public Professor GetProfessorById(int professorId, bool includeAluno = false)
         {
             IQueryable<Professor> query = _context.Professores;
 
-            if (includeDisciplina){
-                query = query.Include(d => d.Disciplina);
+            if (includeAluno){
+                query = query.Include(d => d.Disciplina)
+                            .ThenInclude(d => d.AlunosDisciplinas)
+                            .ThenInclude(ad => ad.Aluno);
             }
 
             query = query.AsNoTracking()
-                         .Where(prof => prof.Id == professorId);
+                        .OrderBy(a => a.Id)
+                        .Where(prof => prof.Id == professorId);
 
             return query.FirstOrDefault();
+        }
+
+        public Professor[] GetProfessoresByAlunoId(int alunoId, bool includeAlunos = false)
+        {
+            IQueryable<Professor> query = _context.Professores;
+
+            if (includeAlunos){
+                query = query.Include(d => d.Disciplina);  
+            }
+
+            query = query.AsNoTracking()
+                         .OrderBy(a => a.Id)
+                         .Where(aluno => aluno.Disciplina.Any(
+                             d => d.AlunosDisciplinas.Any(ad => ad.AlunoId == alunoId)
+                         ));
+
+            return query.ToArray();
         }
 
         public async Task<Professor> GetProfessorByIdAsync(int professorId, bool includeDisciplina = false)

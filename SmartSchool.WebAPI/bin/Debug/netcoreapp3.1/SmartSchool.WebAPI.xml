@@ -44,12 +44,20 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.Patch(System.Int32,SmartSchool.WebAPI.V1.Dtos.AlunoRegistrarDto)">
+        <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.Patch(System.Int32,SmartSchool.WebAPI.V1.Dtos.AlunoPatchDto)">
             <summary>
             Método responsável por atualizar dados de um aluno identificado pelo ID
             </summary>
             <param name="id"></param>
             <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.trocarEstado(System.Int32,SmartSchool.WebAPI.V1.Dtos.TrocaEstadoDto)">
+            <summary>
+            Método responsável por mudar o estado do aluno. Opções: ATIVADO / DESATIVADO
+            </summary>
+            <param name="id"></param>
+            <param name="trocaEstado"></param>
             <returns></returns>
         </member>
         <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.Delete(System.Int32)">
@@ -82,6 +90,13 @@
             Método responsável por retornar um professor identificado pelo ID
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.WebAPI.V1.Controllers.ProfessorController.GetByAlunoId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="alunoId"></param>
             <returns></returns>
         </member>
         <member name="M:SmartSchool.WebAPI.V1.Controllers.ProfessorController.Post(SmartSchool.WebAPI.V1.Dtos.ProfessorRegistrarDto)">

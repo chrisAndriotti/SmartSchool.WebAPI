@@ -58,7 +58,7 @@ namespace SmartSchool.WebAPI.V1.Controllers
             var aluno = _repo.GetAlunoById(id, false);
             if (aluno == null) return BadRequest("Aluno não encontrado!!");
 
-            var alunoDto = _mapper.Map<AlunoDto>(aluno);
+            var alunoDto = _mapper.Map<AlunoRegistrarDto>(aluno);
 
             return Ok(alunoDto);
         }
@@ -105,6 +105,7 @@ namespace SmartSchool.WebAPI.V1.Controllers
             return BadRequest($"Aluno não atualizado!");
         }
 
+
         /// <summary>
         /// Método responsável por atualizar dados de um aluno identificado pelo ID
         /// </summary>
@@ -112,7 +113,7 @@ namespace SmartSchool.WebAPI.V1.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPatch("{id}")] 
-        public IActionResult Patch(int id, AlunoRegistrarDto model)
+        public IActionResult Patch(int id, AlunoPatchDto model)
         {
             var aluno = _repo.GetAlunoById(id, false);
             if (aluno == null) return BadRequest("Aluno não foi encontrado!");
@@ -122,7 +123,30 @@ namespace SmartSchool.WebAPI.V1.Controllers
             _repo.Update(aluno);
             if (_repo.SaveChanges())
             {
-                return Created($"/api/aluno/{model.Id}", _mapper.Map<AlunoDto>(aluno));
+                return Created($"/api/aluno/{model.Id}", _mapper.Map<AlunoPatchDto>(aluno));
+            };
+
+            return BadRequest($"Aluno não atualizado!");
+        }
+        /// <summary>
+        /// Método responsável por mudar o estado do aluno. Opções: ATIVADO / DESATIVADO
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="trocaEstado"></param>
+        /// <returns></returns>
+        [HttpPatch("{id}/trocarEstado")] 
+        public IActionResult trocarEstado(int id, TrocaEstadoDto trocaEstado)
+        {
+            var aluno = _repo.GetAlunoById(id);
+            if (aluno == null) return BadRequest("Aluno não foi encontrado!");
+
+            aluno.Ativo = trocaEstado.Estado;
+
+            _repo.Update(aluno);
+            if (_repo.SaveChanges())
+            {
+                var msn = aluno.Ativo ? "ativado" : "desativado";
+                return Ok(new { message = $"Aluno {msn} com sucesso!"});
             };
 
             return BadRequest($"Aluno não atualizado!");

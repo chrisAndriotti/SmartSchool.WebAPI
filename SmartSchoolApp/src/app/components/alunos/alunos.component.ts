@@ -56,8 +56,9 @@ export class AlunosComponent implements OnInit, OnDestroy {
         this.profsAlunos = professores;
         this.modalRef = this.modalService.show(template);
       }, (error: any) => {
-        this.toastr.error(`erro: ${error}`);
-        console.log(error);
+        this.toastr.error(`erro: ${error.message}`);
+        console.error(error.message);
+        this.spinner.hide();
       }, () => this.spinner.hide()
     );
   }
@@ -67,8 +68,28 @@ export class AlunosComponent implements OnInit, OnDestroy {
       id: [0],
       nome: ['', Validators.required],
       sobrenome: ['', Validators.required],
-      telefone: ['', Validators.required]
+      telefone: ['', Validators.required],
+      ativo: []
     });
+  }
+
+  trocarEstado(aluno: Aluno){
+
+    this.alunoService.trocarEstado(aluno.id, !aluno.ativo)
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe(
+          (resp) => {
+            console.log(resp)
+            this.carregarAlunos();
+            this.toastr.success('Aluno salvo com sucesso!');
+          },
+           (error: any) => {
+            this.toastr.error(`Erro: Aluno não pode ser salvo!`);
+            console.error(error);
+            this.spinner.hide();
+          },
+           () => this.spinner.hide()
+        );
   }
 
   saveAluno(): void {
@@ -87,17 +108,20 @@ export class AlunosComponent implements OnInit, OnDestroy {
           () => {
             this.carregarAlunos();
             this.toastr.success('Aluno salvo com sucesso!');
-          }, (error: any) => {
+          },
+           (error: any) => {
             this.toastr.error(`Erro: Aluno não pode ser salvo!`);
             console.error(error);
-          }, () => this.spinner.hide()
+            this.spinner.hide();
+          },
+           () => this.spinner.hide()
         );
 
     }
   }
 
   carregarAlunos(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const alunoId = +this.route.snapshot.paramMap.get('id');
 
     this.spinner.show();
     this.alunoService.getAll()
@@ -105,22 +129,34 @@ export class AlunosComponent implements OnInit, OnDestroy {
       .subscribe((alunos: Aluno[]) => {
         this.alunos = alunos;
 
-        if (id > 0) {
-          this.alunoSelect(this.alunos.find(aluno => aluno.id === id));
+        if (alunoId > 0) {
+          this.alunoSelect(alunoId);
         }
 
         this.toastr.success('Alunos foram carregado com Sucesso!');
       }, (error: any) => {
         this.toastr.error('Alunos não carregados!');
-        console.log(error);
-      }, () => this.spinner.hide()
+        console.error(error);
+      },
+      () => this.spinner.hide()
     );
   }
 
-  alunoSelect(aluno: Aluno): void {
-    this.modeSave = 'put';
-    this.alunoSelecionado = aluno;
-    this.alunoForm.patchValue(aluno);
+  alunoSelect(alunoId: number): void {
+    this.modeSave = 'patch';
+    this.alunoService.getById(alunoId).subscribe(
+      (alunoReturn) => {
+        this.alunoSelecionado = alunoReturn;
+        this.alunoForm.patchValue(this.alunoSelecionado);
+      },
+      (error) => {
+        this.toastr.error('Alunos não carregados!');
+        console.error(error);
+        this.spinner.hide();
+      },
+      () => this.spinner.hide()
+    );
+
   }
 
   openModal(template: TemplateRef<any>, alunoId: number): void{
