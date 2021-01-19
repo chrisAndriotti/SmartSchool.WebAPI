@@ -7,9 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Aluno } from 'src/app/models/Aluno';
+import { PaginatedResult, Pagination } from 'src/app/models/Pagination';
 import { Professor } from 'src/app/models/Professor';
 import { AlunoService } from 'src/app/services/aluno.service';
 import { ProfessorService } from 'src/app/services/professor.service';
+
 
 @Component({
   selector: 'app-alunos',
@@ -28,6 +30,7 @@ export class AlunosComponent implements OnInit, OnDestroy {
   public aluno!: Aluno;
   public msnDeleteAluno!: string;
   public modeSave = 'post';
+  pagination!: Pagination;
 
   private unsubscriber = new Subject();
 
@@ -44,6 +47,7 @@ export class AlunosComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.pagination = { currentPage: 1, itemsPerPage: 4} as Pagination;
     this.carregarAlunos();
   }
 
@@ -124,10 +128,11 @@ export class AlunosComponent implements OnInit, OnDestroy {
     const alunoId = +this.route.snapshot.paramMap.get('id');
 
     this.spinner.show();
-    this.alunoService.getAll()
+    this.alunoService.getAll(this.pagination.currentPage, this.pagination.itemsPerPage)
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe((alunos: Aluno[]) => {
-        this.alunos = alunos;
+      .subscribe((alunos: PaginatedResult<Aluno[]>) => {
+        this.alunos = alunos.result;
+        this.pagination = alunos.pagination;
 
         if (alunoId > 0) {
           this.alunoSelect(alunoId);
@@ -140,6 +145,11 @@ export class AlunosComponent implements OnInit, OnDestroy {
       },
       () => this.spinner.hide()
     );
+  }
+
+  pageChanged(event: any): void {
+    this.pagination.currentPage = event.page;
+    this.carregarAlunos();
   }
 
   alunoSelect(alunoId: number): void {

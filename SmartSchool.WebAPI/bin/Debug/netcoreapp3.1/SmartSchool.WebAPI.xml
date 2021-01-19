@@ -29,6 +29,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.GetByDisciplinaId(System.Int32)">
+            <summary>
+            Método responsável retornar alunos por disciplina
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.Post(SmartSchool.WebAPI.V1.Dtos.AlunoRegistrarDto)">
             <summary>
             Método responsável por adicionar um novo aluno
@@ -180,31 +187,6 @@
         <member name="M:SmartSchool.WebAPI.V2.Controllers.AlunoController.Delete(System.Int32)">
             <summary>
             Método responsável por remover um aluno identificado pelo ID
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SmartSchool.WebAPI.V2.Controllers.DisciplinaController">
-            <summary>
-            Versão 2.0
-            </summary>
-        </member>
-        <member name="M:SmartSchool.WebAPI.V2.Controllers.DisciplinaController.#ctor(SmartSchool.WebAPI.Data.IRepository,AutoMapper.IMapper)">
-            <summary>
-            
-            </summary>
-            <param name="repo"></param>
-            <param name="mapper"></param>
-        </member>
-        <member name="M:SmartSchool.WebAPI.V2.Controllers.DisciplinaController.Get">
-            <summary>
-            Método responsável por retornar todas as disciplinas
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SmartSchool.WebAPI.V2.Controllers.DisciplinaController.GetById(System.Int32)">
-            <summary>
-            Método responsável por retornar uma disciplina identificada pelo ID
             </summary>
             <param name="id"></param>
             <returns></returns>

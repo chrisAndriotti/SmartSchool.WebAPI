@@ -64,6 +64,19 @@ namespace SmartSchool.WebAPI.V1.Controllers
         }
 
         /// <summary>
+        /// Método responsável retornar alunos por disciplina
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("ByDisciplina/{id}")]  
+
+        public async Task<IActionResult> GetByDisciplinaId(int id)
+        {
+            var result = await _repo.GetAllAlunosByDisciplinaIdAsync(id, false);
+            return Ok(result);
+        }
+
+        /// <summary>
         /// Método responsável por adicionar um novo aluno
         /// </summary>
         /// <param name="model"></param>
