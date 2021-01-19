@@ -11,8 +11,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 import { AlunosComponent } from './components/alunos/alunos.component';
-import { AlunosProfessoresComponent } from './components/professores/alunos-professores/alunos-professores/alunos-professores.component';
-import { ProfessorDetalheComponent } from './components/professores/professor-detalhe/professor-detalhe/professor-detalhe.component';
+import { AlunosProfessoresComponent } from './components/professores/alunos-professores/alunos-professores.component';
+import { ProfessorDetalheComponent } from './components/professores/professor-detalhe/professor-detalhe.component';
 import { ProfessoresAlunosComponent } from './components/alunos/professores-alunos/professores-alunos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
