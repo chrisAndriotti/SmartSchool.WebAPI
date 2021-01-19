@@ -69,7 +69,7 @@ export class ProfessorDetalheComponent implements OnInit, OnDestroy {
         this.titulo = 'Professor: ' + this.professorSelecionado.id;
         this.toastr.success('Professor carregado com Sucesso!');
       }, (error: any) => {
-        this.toastr.error('Professor não carregados!');
+        this.toastr.error('Professor não carregados!!');
         console.log(error);
       }, () => this.spinner.hide()
     );
